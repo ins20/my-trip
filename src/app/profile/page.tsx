@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { createPost, deletePost } from "@/actions/posts";
-
+import Image from "next/image";
 async function getUser() {
   const cookieStore = await cookies();
   const userId = cookieStore.get("userId")?.value;
@@ -79,9 +79,11 @@ export default async function ProfilePage() {
                 <div key={post.id} className="border p-4 rounded">
                   <h3 className="font-bold">{post.title}</h3>
                   {post.imageUrl && (
-                    <img
+                    <Image
                       src={post.imageUrl}
                       alt={post.title}
+                      width={500}
+                      height={500}
                       className="mt-2 rounded-lg max-h-[200px] object-cover"
                     />
                   )}

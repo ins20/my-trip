@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { createComment, deleteComment } from "@/actions/comments";
-
+import Image from "next/image";
 async function getPosts() {
   return prisma.post.findMany({
     orderBy: { createdAt: "desc" },
@@ -51,9 +51,11 @@ export default async function HomePage() {
 
             <p className="mt-2 text-gray-700">{post.description}</p>
             {post.imageUrl && (
-              <img
+              <Image
                 src={post.imageUrl}
                 alt={post.title}
+                width={500}
+                height={500}
                 className="mt-4 rounded-lg w-full max-h-[400px] object-cover"
               />
             )}
