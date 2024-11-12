@@ -55,11 +55,11 @@ export default async function ProfilePage() {
                 />
               </div>
               <div>
-                <label className="block mb-2">Изображение</label>
+                <label className="block mb-2">Ссылка на изображение</label>
                 <input
-                  type="file"
-                  name="image"
-                  accept="image/*"
+                  type="url"
+                  name="imageUrl"
+                  placeholder="https://example.com/image.jpg"
                   className="w-full p-2 border rounded"
                 />
               </div>
